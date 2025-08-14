@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+void swapvalues(int num1, int num2){
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+}
+int main(){
+    int a= 1;
+    int b= 3;
+    swapvalues(a,b);
+    
+    cout<<"After swapping:";
+    cout<<"a="<<num1;
+    cout<<"\nb="<<;
+    
+    return 0;
+}
