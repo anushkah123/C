@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class book{
+    public:
+    string b_name;
+    string a_name;
+    int price;
+    
+    void accept(){
+        cout<<" \nEnter Book name:";
+        cin>>b_name;
+        cout<<" Enter author name:";
+        cin>>a_name;
+        cout<<" Enter price:";
+        cin>>price;
+    }
+    void display(){
+        cout<<"Book Name:"<<b_name;
+         cout<<"Book Author:"<<a_name;
+          cout<<"Book Price:"<<price;
+    }
+};
+int main(){
+    book b1,b2;
+    book *p1 , *p2;
+    p1 = &b1;
+    p2 = &b2;
+
+    p1->accept();
+    cout << "Book 1:"<<endl;
+    p1->display();
+
+    p2->accept();                     
+    cout << "Book 2:"<<endl;
+    p2->display();
+    return 0;
+    
+}
+
