@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+class number{
+    private:
+    int num1;
+    int num2;
+    
+    public:
+    void accept(){
+        cout<<"Enter two numbers:";
+        cin>>num1>>num2;
+    }
+    
+    void display(){
+        cout<<"num1="<<num1<<endl;
+        cout<<"num2="<<num2;
+    }
+    
+    friend void swap (number &n);
+};
+void swap (number &n){
+    int temp = n.num1;
+    n.num1 = n.num2;
+    n.num2 = temp;
+}
+
+int main(){
+    number m;
+    m.accept();
+    cout<<"Before swap:"<<"\n";
+    m.display();
+    
+    swap(m);
+    cout<<"\n After swap:"<<"\n";
+    m.display();
+    
+    return 0;
+}
