@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+class complex{
+    int re,im;
+    public:
+    void accept(){
+        cout<<"Enter real part:";
+        cin>>re;
+        cout<<"Enter imaginary part:";
+        cin>>im;
+    }
+   void display(){
+       cout<<re<<"+"<<im<<"i"<<"\n";
+   }
+   
+   void sum (complex c1 , complex c2){
+       re = c1.re+ c2.re;
+       im = c1.im + c2.im;
+   }
+};
+int main(){
+    complex c1,c2,result;
+    cout<<"Enter first number: \n";
+    c1.accept();
+    cout<<"Enter second number: \n";
+    c2.accept();
+    
+    result.sum(c1,c2);
+    cout<<"Sum of 2 complex numbers is:";
+    result.display();
+    
+    return 0;
+    
+    
+}
