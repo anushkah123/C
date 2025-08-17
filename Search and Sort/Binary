@@ -1,0 +1,40 @@
+#include <stdio.h>
+int main(){
+    int arr[50],n,i,key,L,H,M;
+    
+    printf("Enter number of elements in the array:");
+    scanf("%d",&n);
+    
+    printf("Enter the elements of the array in sorted order:");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    
+    printf("Element you want to search:");
+    scanf("%d",&key);
+      
+      L=0;
+      H=n-1;
+      
+      while(L<H){
+          M=(L+H)/2;
+          if(arr[M]==key){
+              printf("Element %d found at position %d.",arr[M],M+1);
+              break;
+          }
+          else{
+              if(key<arr[M]){
+                  H=M-1;
+              }
+              else{
+                  L=M+1;
+              }
+          }
+      }
+      if (L>=H){
+          printf("Elment not found.");
+      }
+      
+      return 0;
+      
+}
