@@ -1,0 +1,7 @@
+printf("After pass %d : ",i);
+        for(int p=0;p<6;p++){
+            printf(" %d ",arr[p]);
+        }
+        printf("\n");
+\\ within for loop
+        
