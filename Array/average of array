@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(){
+    int arr[10],i;
+    float average,sum=0.0;
+    
+    printf("Enter the elements of the array:");
+    for(i=0;i<10;i++){
+        scanf("%d",&arr[i]);
+    }
+    for(i=0;i<10;i++){
+        sum=sum+arr[i];
+    }
+    average=sum/10;
+    printf("The average of 10 numbers in an array is:%f",average);
+    
+    return 0;
+}
