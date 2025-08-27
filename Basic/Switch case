@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main(){
+    int num;
+    
+    printf("Enter 1 2 or 3 number:");
+    scanf("%d",&num);
+    
+    switch(num){
+        case 1:
+        printf ("PINK");
+        break;
+        
+        case 2:
+        printf("BLUE");
+        break;
+        
+        case 3:
+        printf("PURPLE");
+        break;
+        
+        default:
+        printf("INVALID");
+        break;
+        
+    }
+    
+    return 0;
+}
