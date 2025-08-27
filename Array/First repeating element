@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(){
+    int arr[100],n,i,j;
+    
+    printf("enter number of elements in the array:");
+    scanf("%d",&n);
+    
+     printf("Enter the elements of the array:");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    
+    for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if(arr[i]==arr[j]){
+                printf("%d is the first repeating element of the array.",arr[i]);
+            }
+            
+            }
+        }
+    
+return 0;
+}
