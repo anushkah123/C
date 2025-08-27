@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(){
+
+int arr[5],i;
+float sum=0.0,average,percentage;
+
+printf("Enter marks for each subject: ");
+for(i=0;i<5;i++){
+    scanf("%d",&arr[i]);
+}
+
+for(i=0;i<5;i++){
+    sum = sum+arr[i];
+}
+    average = sum/5;
+    percentage = (sum/500)*100;
+
+
+printf("Average of marks is :%f\n",average);
+printf("Percentage is:%.2f %%",percentage);
+
+return 0;
+}
