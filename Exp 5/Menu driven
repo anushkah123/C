@@ -48,11 +48,11 @@ void createlist(){
     printf("Enter element no. %d : ",i);
     scanf("%d",&element);
     struct node *newnode = createnode(element);
-    if (head==NULL)
+    if (head==NULL) //empty
     head = newnode;
     else{
         struct node *temp = head;
-        while(temp->next!=NULL)
+        while(temp->next!=NULL) //iterate
         temp = temp->next;
         temp->next= newnode;
        }
@@ -65,13 +65,13 @@ void displaylist(){
     return;
     }
     
-    struct node *temp = head;
+    struct node *temp = head; //initial value
     printf("List:");
-    while(temp !=NULL){
-        printf("%d -> ",temp->data);
-        temp = temp ->next;
+    while(temp !=NULL){  //iterate
+        printf("%d -> ",temp->data); //insert data
+        temp = temp ->next; //icreament
     }
-    printf("NULL\n");
+    printf("NULL\n"); //after last
     
     
 }
