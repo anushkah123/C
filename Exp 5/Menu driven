@@ -242,7 +242,16 @@ void searchelem(){
 }
 
 void reverselist(){
+    struct node *prev=NULL,*curr=head,*next=NULL;  
+    while(curr !=NULL){
+        next = curr->next;    //make curr vacant
+        curr->next = prev;     // store prev instead of next
+        prev=curr;
+        curr=next;               //move forward
+    }
+    head=prev;
     
+    printf("List Reversed.");
     
 }
     
