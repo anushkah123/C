@@ -13,6 +13,10 @@ void displaylist();
 void insertatbeginning();
 void insertatend();
 void insertatposition();
+void deleteatbeginning();
+void deleteatend();
+void deleteatposition();
+     
 
 int main(){
     int choice;
@@ -22,8 +26,11 @@ int main(){
         printf("\n2.Display");
         printf("\n3.Insert at beginning");
         printf("\n4.Insert at end");
-        printf("\n5. Insert at position");
-        printf("\n6.Exit");
+        printf("\n5.Insert at position");
+        printf("\n6.Delete at beginning");
+        printf("\n7.Delete at end");
+        printf("\n8.Delete at position");
+        printf("\n9.Exit");
         printf("\nEnter your choice:");
         scanf("%d",&choice);
         
@@ -33,7 +40,10 @@ int main(){
             case 3:insertatbeginning();break;
             case 4:insertatend();break;
             case 5:insertatposition();break;
-            case 6:exit(0);
+            case 6:deleteatbeginning();break;
+            case 7:deleteatend();break;
+            case 8:deleteatposition;break;
+            case 9:exit(0);
             default:printf("Invalid choice!");
 
         }
@@ -114,14 +124,59 @@ void insertatposition(){
      printf("Enter element:");
      scanf("%d",&element);
      printf("Enter position you want to enter at:");
-     scanf("%d",pos);
+     scanf("%d",&pos);
      struct node *newnode = createnode(element);
      if(pos==1){
          newnode ->next = head; //link newnode to current first node
          head = newnode; //newnodes address in head
          return;
      }
-     struct Node *temp = head;
+     struct node *temp = head;
+     for(int i=1;temp!=NULL && i<pos-1;i++){  //index before position
+         temp = temp->next;
+     }
+     if(temp==NULL) {    //end
+         printf("Invalid position!");
+         free(newnode);
+         return;
+     }
+     newnode->next = temp->next;   //store address of next in newnode
+     temp->next=newnode;           //store address of newnode in previous
+}
+
+void deleteatbeginning(){
+    if(head==NULL){
+        printf("List is empty");
+        return;
+    }
+    struct node *temp = head;  
+    head = head->next;  //assign to 2nd which will be 1st
+    free(temp); //delete 1st
+}
+
+void deleteatend(){
+if(head==NULL){
+        printf("List is empty");
+        return;
+    } 
+if(head->next==NULL){ //only one element
+    free(head);
+    head = NULL;
+    return;
+}
+struct node *temp = head;
+while(temp->next->next !=NULL) //second last
+temp = temp->next;
+free(temp->next);
+temp->next = NULL;
+}
+
+void deleteatposition(){
+    
+}
+    
+     
+     
     
 
  
