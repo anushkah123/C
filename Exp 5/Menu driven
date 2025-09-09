@@ -1,3 +1,4 @@
+// my code
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,6 +17,9 @@ void insertatposition();
 void deleteatbeginning();
 void deleteatend();
 void deleteatposition();
+void countnodes();
+void searchelem();
+void reverselist();
      
 
 int main(){
@@ -30,7 +34,10 @@ int main(){
         printf("\n6.Delete at beginning");
         printf("\n7.Delete at end");
         printf("\n8.Delete at position");
-        printf("\n9.Exit");
+        printf("\n9.Count no. of Nodes");
+        printf("\n10.Search an element");
+        printf("\n11.Reverse List");
+        printf("\n12.Exit");
         printf("\nEnter your choice:");
         scanf("%d",&choice);
         
@@ -42,8 +49,11 @@ int main(){
             case 5:insertatposition();break;
             case 6:deleteatbeginning();break;
             case 7:deleteatend();break;
-            case 8:deleteatposition;break;
-            case 9:exit(0);
+            case 8:deleteatposition();break;
+            case 9:countnodes();break;
+            case 10:searchelem();break;
+            case 11:reverselist();break;
+            case 12:exit(0);
             default:printf("Invalid choice!");
 
         }
@@ -171,12 +181,71 @@ free(temp->next);
 temp->next = NULL;
 }
 
+
 void deleteatposition(){
+    int pos;
+    printf("Enter position to delete:");
+    scanf("%d",&pos);
+    if (head==NULL){
+        printf("List is empty.");
+        return;
+    }
+    if(pos==1){  //first node
+        deleteatbeginning();
+        return;
+    }
+    struct node *temp = head;
+    for(int i=1;i<pos-1 && temp!=NULL;i++){   //reach at pos-1
+        temp = temp->next;
+    }
+    if(temp==NULL || temp->next== NULL){     
+        printf("Position out of range!");
+        return;
+    }
+    struct node *del = temp->next;   
+    temp->next = del->next;     // assign value to node before del node
+    free(del);
+    
+    
+}
+
+void countnodes(){
+    int count=0;
+    struct node *temp = head;
+    while(temp !=NULL){
+        temp = temp->next;
+        count++;
+    }
+    printf("Number of nodes in array is:%d",count);
+    
+    
+}
+
+void searchelem(){
+    int key,pos=1;
+    printf("Enter element you want to find:");
+    scanf("%d",&key);
+    struct node *temp = head;
+    while(temp!=NULL){
+        if(temp->data == key){
+            printf("Element %d found at position %d",key,pos);
+            return;
+        }
+            temp = temp->next;   //increament
+            pos++;               // pos incr
+    }
+        
+        printf("Element not found in the list.");
+    
+    
+    
+}
+
+void reverselist(){
+    
     
 }
     
      
      
     
-
- 
