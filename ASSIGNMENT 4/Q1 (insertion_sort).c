@@ -1,38 +1,45 @@
 #include <stdio.h>
 
-int main() {
-    int arr[100], n, i, j, key, pass;
+int main()
+{
+    int arr[50], n, i, j, temp, k;
+    int p;
 
-    printf("Enter the number of elements: ");
+    printf("\nEnter number of elements: ");
     scanf("%d", &n);
 
-    printf("Enter %d elements:\n", n);
-    for (i = 0; i < n; i++) {
+    printf("Enter %d elements: ", n);
+    for (i = 0; i < n; i++)
+    {
         scanf("%d", &arr[i]);
     }
 
-    for (i = 1, pass = 1; i < n; i++, pass++) {
-        key = arr[i];
-        j = i - 1;
-
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j--;
+    for (i = 1; i < n; i++) {
+        for (j = 0; j < i; j++) {
+            if (arr[i] < arr[j]) {
+                temp = arr[i];
+                for (k = i - 1; k >= j; k--)
+                {
+                    arr[k + 1] = arr[k];
+                }
+                arr[j] = temp;
+                break;
+            }
         }
-        arr[j + 1] = key;
-
         
-        printf("After Pass %d: ", pass);
-        for (int k = 0; k < n; k++) {
-            printf("%d ", arr[k]);
+        printf("\nAfter pass %d: ", i);
+        for (p = 0; p < n; p++)
+        {
+            printf("%d ", arr[p]);
         }
-        printf("\n");
     }
 
-    printf("Final Sorted array:\n");
-    for (i = 0; i < n; i++) {
+    printf("\nSorted array: ");
+    for (i = 0; i < n; i++)
+    {
         printf("%d ", arr[i]);
     }
+    printf("\n");
 
     return 0;
 }
